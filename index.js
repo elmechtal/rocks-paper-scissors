@@ -1,3 +1,12 @@
+    const feedbackElement = document.querySelector('.feedback');
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            let playerChoice = e.target.id;
+            let feedback = playRound(computerPlay(), playerChoice);
+            feedbackElement.innerText = feedback;
+        });
+    });
 
 function computerPlay() { 
     let moves = ['rock', 'paper', 'scissor'];
@@ -30,12 +39,3 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-function game() {
-    for (i=0; i<5; i++) {
-    let playerChoice = prompt('Rock, paper or scissor?');
-    feedback = playRound(computerPlay(), playerChoice);
-    alert(feedback);
-    }
-}
-
-game();
